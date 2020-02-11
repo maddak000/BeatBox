@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         beatBox = BeatBox(assets)
         beatBox.loadSounds()
-        
+
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
