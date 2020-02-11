@@ -17,18 +17,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         beatBox = BeatBox(assets)
-        beatBox.loadSounds()
 
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         binding.recyclerView.apply {
             layoutManager = GridLayoutManager(context, 3)
-            adapter = SoundAdapter()
+            adapter = SoundAdapter(beatBox.sounds)
         }
     }
 
-    private inner class SoundAdapter :
+    private inner class SoundAdapter (private val sounds:List<Sound>) :
         RecyclerView.Adapter<SoundAdapter.SoundHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SoundHolder {
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: SoundHolder, position: Int) {
         }
 
-        override fun getItemCount() = 0
+        override fun getItemCount() = sounds.size
 
         private inner class SoundHolder(private val binding: ListItemSoundBinding) :
             RecyclerView.ViewHolder(binding.root) {

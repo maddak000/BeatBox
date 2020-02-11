@@ -8,13 +8,13 @@ private const val SOUNDS_FOLDER = "sample_sounds"
 
 class BeatBox(private val assets: AssetManager) {
 
-    private val sounds: List<Sound>
+    val sounds: List<Sound>
 
     init {
         sounds = loadSounds()
     }
 
-    fun loadSounds(): List<Sound> {
+    private fun loadSounds(): List<Sound> {
         val soundNames = assets.list(SOUNDS_FOLDER) ?: emptyArray()
         val sounds = mutableListOf<Sound>()
         soundNames.forEach { filename ->
