@@ -40,7 +40,13 @@ class BeatBox(private val assets: AssetManager) {
     private fun load(sound: Sound){
         val afd: AssetFileDescriptor = assets.openFd(sound.assetPath)
         val soundId = soundPool.load(afd,1)
-        sound.soundID = soundId
+        sound.soundId = soundId
+    }
+
+    fun play(sound: Sound) {
+        sound.soundId?.let {
+            soundPool.play(it,1.0f, 1.0f, 1,0,1.0f)
+        }
     }
 
 //    fun loadSounds(): List<String> {
