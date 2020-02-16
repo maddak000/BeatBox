@@ -49,6 +49,10 @@ class BeatBox(private val assets: AssetManager) {
         }
     }
 
+    fun release(){
+        soundPool.release()
+    }
+
 //    fun loadSounds(): List<String> {
 //        return try {
 //            val soundNames = assets.list(SOUNDS_FOLDER)!!

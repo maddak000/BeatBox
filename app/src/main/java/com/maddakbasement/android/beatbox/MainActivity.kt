@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        beatBox.release()
+    }
+
     private inner class SoundAdapter(private val sounds: List<Sound>) :
         RecyclerView.Adapter<SoundAdapter.SoundHolder>() {
 
