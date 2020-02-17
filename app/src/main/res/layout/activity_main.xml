@@ -12,24 +12,29 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/playback_speed"
             app:layout_constraintTop_toTopOf="parent">
-
-
         </androidx.recyclerview.widget.RecyclerView>
 
         <TextView
             android:id="@+id/playback_speed"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:paddingBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/seekBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view"
             tools:text="TextView" />
+
         <SeekBar
             android:id="@+id/seekBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:scrollbarSize="4dp"
+            android:max="150"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
