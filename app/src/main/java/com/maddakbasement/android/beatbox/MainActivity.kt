@@ -13,7 +13,6 @@ import com.maddakbasement.android.beatbox.databinding.ListItemSoundBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var beatBox: BeatBox
-    private lateinit var seekBar: SeekBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,22 +22,25 @@ class MainActivity : AppCompatActivity() {
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        binding.viewModel = ActivityViewModel(beatBox, binding.seekBar)
+
         binding.recyclerView.apply {
             layoutManager = GridLayoutManager(context, 3)
             adapter = SoundAdapter(beatBox.sounds)
         }
-        seekBar = binding.seekBar
-        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                beatBox.playbackRate=2.0f
-            }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-            }
 
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-            }
-        })
+//        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+//                beatBox.playbackRate=1.0f + (progress-50)/100
+//            }
+//
+//            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+//            }
+//
+//            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+//            }
+//        })
     }
 
     override fun onDestroy() {

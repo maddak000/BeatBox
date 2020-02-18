@@ -1,11 +1,11 @@
 package com.maddakbasement.android.beatbox
-
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 
-class SoundViewModel(private val beatBox:BeatBox): BaseObservable() {
+
+class SoundViewModel(private val beatBox: BeatBox) : BaseObservable() {
     fun onButtonClicked() {
-        sound?.let{
+        sound?.let {
             beatBox.play(it)
         }
     }
